@@ -105,4 +105,4 @@ There is also a `[ NORAD GLOBE — SAVAGE ]` button. Do not click it if you are 
 
 ---
 
-**[PLAY IN BROWSER](index.html)**
+**[PLAY IN BROWSER](https://dust-bound.netlify.app/)**
