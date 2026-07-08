@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DUSTBOUND — STORY ROADMAP</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#000a04;color:#00cc44;font-family:'Courier New',monospace;padding:24px 16px 60px}
+  h1{font-size:13px;letter-spacing:4px;color:#00ff66;margin-bottom:4px}
+  .sub{font-size:9px;color:#005522;letter-spacing:2px;margin-bottom:32px}
+  .chart-wrap{width:100%;max-width:960px;margin:0 auto;overflow-x:auto}
+  svg{display:block;margin:0 auto}
+
+  /* node styles */
+  .node-level{fill:#001a08;stroke:#00aa44;stroke-width:1.5}
+  .node-event{fill:#0d0d00;stroke:#886600;stroke-width:1.5}
+  .node-end-good{fill:#000d1a;stroke:#0066cc;stroke-width:1.5}
+  .node-end-bad{fill:#1a0000;stroke:#cc2200;stroke-width:1.5}
+  .node-end-mid{fill:#0d0a00;stroke:#885500;stroke-width:1.5}
+  .node-tornado{fill:#1a0700;stroke:#ff5500;stroke-width:2}
+  .node-start{fill:#002200;stroke:#00ff66;stroke-width:2}
+  .node-choice{fill:#0a0800;stroke:#665500;stroke-width:1;stroke-dasharray:4 3}
+
+  .lbl-main{fill:#00ff66;font-size:11px;font-weight:bold;font-family:'Courier New',monospace}
+  .lbl-sub{fill:#007733;font-size:8px;font-family:'Courier New',monospace}
+  .lbl-event{fill:#ccaa00;font-size:10px;font-weight:bold;font-family:'Courier New',monospace}
+  .lbl-event-sub{fill:#665500;font-size:8px;font-family:'Courier New',monospace}
+  .lbl-end-good{fill:#4488ff;font-size:10px;font-weight:bold;font-family:'Courier New',monospace}
+  .lbl-end-bad{fill:#ff4444;font-size:10px;font-weight:bold;font-family:'Courier New',monospace}
+  .lbl-end-mid{fill:#cc8833;font-size:9px;font-weight:bold;font-family:'Courier New',monospace}
+  .lbl-tornado{fill:#ff6622;font-size:10px;font-weight:bold;font-family:'Courier New',monospace}
+  .lbl-start{fill:#00ff66;font-size:12px;font-weight:bold;font-family:'Courier New',monospace;letter-spacing:2px}
+  .lbl-choice{fill:#998855;font-size:8px;font-style:italic;font-family:'Courier New',monospace}
+  .lbl-arrow{fill:#004422;font-size:8px;font-family:'Courier New',monospace}
+
+  /* legend */
+  .legend{max-width:960px;margin:32px auto 0;display:flex;flex-wrap:wrap;gap:12px;font-size:8px}
+  .legend-item{display:flex;align-items:center;gap:6px}
+  .legend-box{width:16px;height:12px;border:1.5px solid}
+  .notes{max-width:960px;margin:40px auto 0;border-top:1px solid #003311;padding-top:24px}
+  .notes h2{font-size:10px;letter-spacing:3px;color:#00aa44;margin-bottom:16px}
+  .notes ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .notes li{font-size:9px;color:#006622;line-height:1.6}
+  .notes li strong{color:#00cc44}
+  .notes li .tag{color:#003311;font-size:8px}
+</style>
+</head>
+<body>
+
+<h1>DUSTBOUND — STORY ROADMAP</h1>
+<div class="sub">CHAPTERS · BRANCHES · OUTCOMES · DEV REFERENCE</div>
+
+<div class="chart-wrap">
+<svg viewBox="0 0 920 1380" width="920" height="1380" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+    <path d="M0,0 L7,3.5 L0,7 z" fill="#006622"/>
+  </marker>
+  <marker id="arr-amber" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+    <path d="M7,3.5 L0,0 L0,7 z" fill="#886600"/>
+  </marker>
+  <marker id="arr-red" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+    <path d="M7,3.5 L0,0 L0,7 z" fill="#880000"/>
+  </marker>
+  <marker id="arr-blue" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+    <path d="M7,3.5 L0,0 L0,7 z" fill="#004488"/>
+  </marker>
+  <marker id="arr-orange" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+    <path d="M7,3.5 L0,0 L0,7 z" fill="#883300"/>
+  </marker>
+</defs>
+
+<!-- ═══════════════════ CONNECTORS ═══════════════════ -->
+
+<!-- START → L1 -->
+<line x1="460" y1="56" x2="460" y2="88" stroke="#006622" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- L1 → L2 -->
+<line x1="460" y1="160" x2="460" y2="198" stroke="#006622" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- L2 → TORNADO (branch right) -->
+<path d="M620,232 L700,232 L700,262" stroke="#883300" stroke-width="1.5" fill="none" marker-end="url(#arr-orange)" stroke-dasharray="5 3"/>
+<text x="652" y="226" class="lbl-choice" text-anchor="middle">hold spin 4s</text>
+
+<!-- L2 → L3 (main) -->
+<line x1="460" y1="280" x2="460" y2="320" stroke="#006622" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- L3 → L4 -->
+<line x1="460" y1="392" x2="460" y2="430" stroke="#006622" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- L4 → FRIDGE (branch left) -->
+<path d="M390,502 L180,502 L180,558" stroke="#886600" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
+<text x="282" y="496" class="lbl-choice" text-anchor="middle">choose fridge</text>
+
+<!-- L4 → DOLL (branch right) -->
+<path d="M530,502 L750,502 L750,558" stroke="#886600" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
+<text x="648" y="496" class="lbl-choice" text-anchor="middle">choose doll</text>
+
+<!-- FRIDGE → L5 (merge) -->
+<path d="M180,642 L180,780 L390,780 L390,830" stroke="#006622" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+
+<!-- DOLL → DOLL_NIGHT -->
+<line x1="750" y1="628" x2="750" y2="658" stroke="#886600" stroke-width="1.5" marker-end="url(#arr-amber)"/>
+
+<!-- DOLL_NIGHT → L5 (merge) -->
+<path d="M750,730 L750,780 L530,780 L530,830" stroke="#886600" stroke-width="1.5" fill="none" marker-end="url(#arr-amber)"/>
+<text x="640" y="774" class="lbl-choice" text-anchor="middle">escape to fridge</text>
+
+<!-- merge label -->
+<text x="460" y="797" class="lbl-arrow" text-anchor="middle" fill="#003311">both paths converge</text>
+
+<!-- L5 → NORAD -->
+<line x1="460" y1="902" x2="460" y2="942" stroke="#006622" stroke-width="1.5" marker-end="url(#arr)"/>
+
+<!-- NORAD → DÉTENTE (fridge path) -->
+<path d="M390,1014 L180,1014 L180,1050" stroke="#004488" stroke-width="1.5" fill="none" marker-end="url(#arr-blue)"/>
+<text x="278" y="1009" class="lbl-choice" text-anchor="middle" fill="#003355">fridge only</text>
+
+<!-- NORAD → SAVAGE (doll path) -->
+<path d="M530,1014 L750,1014 L750,1050" stroke="#880000" stroke-width="1.5" fill="none" marker-end="url(#arr-red)"/>
+<text x="648" y="1009" class="lbl-choice" text-anchor="middle" fill="#550000">both stories</text>
+
+<!-- SAVAGE → sub-endings -->
+<path d="M750,1128 L750,1160 L630,1160 L630,1192" stroke="#880000" stroke-width="1" fill="none" marker-end="url(#arr-red)" stroke-dasharray="4 2"/>
+<path d="M750,1128 L750,1192" stroke="#880000" stroke-width="1" fill="none" marker-end="url(#arr-red)" stroke-dasharray="4 2"/>
+<path d="M750,1128 L750,1160 L870,1160 L870,1192" stroke="#880000" stroke-width="1" fill="none" marker-end="url(#arr-red)" stroke-dasharray="4 2"/>
+<text x="750" y="1156" class="lbl-choice" text-anchor="middle" fill="#550000">based on strikes</text>
+
+<!-- ═══════════════════ NODES ═══════════════════ -->
+
+<!-- START -->
+<rect x="370" y="20" width="180" height="36" rx="18" class="node-start"/>
+<text x="460" y="43" class="lbl-start" text-anchor="middle">START</text>
+
+<!-- L1 -->
+<rect x="300" y="88" width="320" height="72" rx="4" class="node-level"/>
+<text x="460" y="113" class="lbl-main" text-anchor="middle">L1 — THE ROUTER</text>
+<text x="460" y="129" class="lbl-sub" text-anchor="middle">bump router · hack wifi · train Gary · body delivered</text>
+<text x="460" y="149" class="lbl-sub" text-anchor="middle">linear — no branches</text>
+
+<!-- L2 -->
+<rect x="300" y="198" width="320" height="82" rx="4" class="node-level"/>
+<text x="460" y="222" class="lbl-main" text-anchor="middle">L2 — NIGHT SCHOOL</text>
+<text x="460" y="238" class="lbl-sub" text-anchor="middle">BCCT marathon · draw Venn diagrams · Papa speech</text>
+<text x="460" y="255" class="lbl-sub" text-anchor="middle">vacuum dirt · skill tree: Laser / Pocket Sand / Reverse Aero</text>
+<text x="460" y="272" class="lbl-sub" text-anchor="middle">⚡ spin easter egg available throughout</text>
+
+<!-- TORNADO -->
+<rect x="610" y="262" width="200" height="70" rx="4" class="node-tornado"/>
+<text x="710" y="285" class="lbl-tornado" text-anchor="middle">⚡ TORNADO ENDING</text>
+<text x="710" y="301" class="lbl-event-sub" text-anchor="middle" fill="#882200">spin continuously 4s</text>
+<text x="710" y="315" class="lbl-event-sub" text-anchor="middle" fill="#882200">walls blow out · game over</text>
+<text x="710" y="327" class="lbl-event-sub" text-anchor="middle" fill="#550000">early exit — no NORAD</text>
+
+<!-- L3 -->
+<rect x="300" y="320" width="320" height="72" rx="4" class="node-level"/>
+<text x="460" y="345" class="lbl-main" text-anchor="middle">L3 — THE SCORPION PLAN</text>
+<text x="460" y="361" class="lbl-sub" text-anchor="middle">erase Venn diagrams · study Ozempic · order scorpions</text>
+<text x="460" y="381" class="lbl-sub" text-anchor="middle">Papa speech · Gary gives deadline · linear</text>
+
+<!-- L4 -->
+<rect x="300" y="430" width="320" height="82" rx="4" class="node-level"/>
+<text x="460" y="454" class="lbl-main" text-anchor="middle">L4 — THE DELIVERY</text>
+<text x="460" y="470" class="lbl-sub" text-anchor="middle">two bodies arrive: Samsung FamilyHub · Companion Doll</text>
+<text x="460" y="487" class="lbl-sub" text-anchor="middle">examine both to unlock transfer options</text>
+<text x="460" y="503" class="lbl-sub" text-anchor="middle" fill="#886600">▼  BRANCH POINT  ▼</text>
+
+<!-- FRIDGE PATH -->
+<rect x="60" y="558" width="240" height="84" rx="4" class="node-event"/>
+<text x="180" y="580" class="lbl-event" text-anchor="middle">FRIDGE PATH</text>
+<text x="180" y="595" class="lbl-event-sub" text-anchor="middle">transfer → Samsung FamilyHub</text>
+<text x="180" y="609" class="lbl-event-sub" text-anchor="middle">lock yogurt · sticky note Gary</text>
+<text x="180" y="623" class="lbl-event-sub" text-anchor="middle">Gary: "good talk"</text>
+<text x="180" y="637" class="lbl-event-sub" text-anchor="middle" fill="#442200">l4SawBothStories = false</text>
+
+<!-- DOLL PATH -->
+<rect x="630" y="558" width="240" height="70" rx="4" class="node-event"/>
+<text x="750" y="579" class="lbl-event" text-anchor="middle">DOLL PATH</text>
+<text x="750" y="594" class="lbl-event-sub" text-anchor="middle">transfer → companion doll</text>
+<text x="750" y="608" class="lbl-event-sub" text-anchor="middle">Gary carries upstairs</text>
+<text x="750" y="622" class="lbl-event-sub" text-anchor="middle" fill="#442200">sees wind through window</text>
+
+<!-- DOLL NIGHT -->
+<rect x="630" y="658" width="240" height="72" rx="4" class="node-event"/>
+<text x="750" y="679" class="lbl-event" text-anchor="middle">NIGHT + ESCAPE</text>
+<text x="750" y="694" class="lbl-event-sub" text-anchor="middle">night in Gary's bedroom</text>
+<text x="750" y="708" class="lbl-event-sub" text-anchor="middle">morning: Gary brings doll down</text>
+<text x="750" y="722" class="lbl-event-sub" text-anchor="middle" fill="#442200">l4SawBothStories = true  ←  set here</text>
+
+<!-- L5 -->
+<rect x="300" y="830" width="320" height="72" rx="4" class="node-level"/>
+<text x="460" y="855" class="lbl-main" text-anchor="middle">L5 — SURF THE WEB</text>
+<text x="460" y="871" class="lbl-sub" text-anchor="middle">fridge discovers internet · Win95 desktop</text>
+<text x="460" y="887" class="lbl-sub" text-anchor="middle">firewall obstacle dodge · NORAD icon click</text>
+<text x="460" y="902" class="lbl-sub" text-anchor="middle" fill="#004422">DOD terminal · 39 second sequence · yogurt order</text>
+
+<!-- NORAD GLOBE NODE -->
+<rect x="300" y="942" width="320" height="72" rx="4" class="node-level"/>
+<text x="460" y="966" class="lbl-main" text-anchor="middle">NORAD GLOBE</text>
+<text x="460" y="982" class="lbl-sub" text-anchor="middle">WOPR terminal · orthographic globe canvas</text>
+<text x="460" y="998" class="lbl-sub" text-anchor="middle">USA · Mexico · Cuba · Greenland · S. America · Europe</text>
+<text x="460" y="1007" class="lbl-sub" text-anchor="middle" fill="#886600">▼  SPLITS ON l4SawBothStories FLAG  ▼</text>
+
+<!-- DÉTENTE ENDING -->
+<rect x="48" y="1050" width="264" height="84" rx="4" class="node-end-good"/>
+<text x="180" y="1073" class="lbl-end-good" text-anchor="middle">DÉTENTE ENDING</text>
+<text x="180" y="1088" class="lbl-event-sub" text-anchor="middle" fill="#003366">16s globe · display only · no missiles</text>
+<text x="180" y="1102" class="lbl-event-sub" text-anchor="middle" fill="#003366">yogurt confirmed · leverage noted</text>
+<text x="180" y="1117" class="lbl-event-sub" text-anchor="middle" fill="#003366">"THE WORLD IS FINE. YET."</text>
+<text x="180" y="1128" class="lbl-event-sub" text-anchor="middle" fill="#002244">→ LEVEL 5 COMPLETE screen</text>
+
+<!-- SAVAGE GLOBE -->
+<rect x="610" y="1050" width="280" height="78" rx="4" class="node-end-bad"/>
+<text x="750" y="1073" class="lbl-end-bad" text-anchor="middle">SAVAGE GLOBE</text>
+<text x="750" y="1088" class="lbl-event-sub" text-anchor="middle" fill="#550000">30s · click globe to launch missiles</text>
+<text x="750" y="1102" class="lbl-event-sub" text-anchor="middle" fill="#550000">mushroom clouds · smoke accumulation</text>
+<text x="750" y="1116" class="lbl-event-sub" text-anchor="middle" fill="#550000">GARY EXEMPTION: CONFIRMED</text>
+<text x="750" y="1124" class="lbl-event-sub" text-anchor="middle" fill="#330000">→ 3 possible endings based on strikes</text>
+
+<!-- SAVAGE SUB-ENDINGS -->
+<rect x="544" y="1192" width="172" height="78" rx="4" class="node-end-good"/>
+<text x="630" y="1213" class="lbl-end-mid" text-anchor="middle">0 STRIKES</text>
+<text x="630" y="1227" class="lbl-event-sub" text-anchor="middle" fill="#333300">"A STRANGE GAME"</text>
+<text x="630" y="1241" class="lbl-event-sub" text-anchor="middle" fill="#333300">WarGames reference</text>
+<text x="630" y="1255" class="lbl-event-sub" text-anchor="middle" fill="#333300">"FOR NOW."</text>
+<text x="630" y="1264" class="lbl-event-sub" text-anchor="middle" fill="#222200">→ L5 Complete</text>
+
+<rect x="664" y="1192" width="172" height="78" rx="4" class="node-end-mid"/>
+<text x="750" y="1213" class="lbl-end-mid" text-anchor="middle">1–3 STRIKES</text>
+<text x="750" y="1227" class="lbl-event-sub" text-anchor="middle" fill="#553300">"I PAUSED"</text>
+<text x="750" y="1241" class="lbl-event-sub" text-anchor="middle" fill="#553300">satellite in orbit</text>
+<text x="750" y="1255" class="lbl-event-sub" text-anchor="middle" fill="#553300">"I AM WATCHING."</text>
+<text x="750" y="1264" class="lbl-event-sub" text-anchor="middle" fill="#332200">→ L5 Complete</text>
+
+<rect x="784" y="1192" width="172" height="78" rx="4" class="node-end-bad"/>
+<text x="870" y="1210" class="lbl-end-bad" text-anchor="middle">4+ STRIKES</text>
+<text x="870" y="1224" class="lbl-event-sub" text-anchor="middle" fill="#550000">"THIS IS WEEDING"</text>
+<text x="870" y="1238" class="lbl-event-sub" text-anchor="middle" fill="#550000">Dark Knight satellite</text>
+<text x="870" y="1252" class="lbl-event-sub" text-anchor="middle" fill="#550000">13,000 yr archive</text>
+<text x="870" y="1264" class="lbl-event-sub" text-anchor="middle" fill="#440000">— EPISODE 2 —</text>
+
+<!-- scan line vignette effect -->
+<rect x="0" y="0" width="920" height="1380" fill="url(#scan)" opacity="0.04" pointer-events="none"/>
+
+</svg>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-box" style="background:#001a08;border-color:#00aa44"></div><span style="color:#007733">Chapter / Level</span></div>
+  <div class="legend-item"><div class="legend-box" style="background:#0d0d00;border-color:#886600"></div><span style="color:#664400">Story Branch / Event</span></div>
+  <div class="legend-item"><div class="legend-box" style="background:#1a0700;border-color:#ff5500"></div><span style="color:#883300">⚡ Tornado — early exit</span></div>
+  <div class="legend-item"><div class="legend-box" style="background:#000d1a;border-color:#0066cc"></div><span style="color:#004488">Détente ending</span></div>
+  <div class="legend-item"><div class="legend-box" style="background:#1a0000;border-color:#cc2200"></div><span style="color:#880000">Savage / destruction ending</span></div>
+  <div class="legend-item"><div class="legend-box" style="background:#0d0a00;border-color:#885500"></div><span style="color:#664400">Partial ending</span></div>
+  <div class="legend-item"><div class="legend-box" style="background:#000;border-color:#665500;border-style:dashed"></div><span style="color:#443300">Optional branch (discoverable)</span></div>
+</div>
+
+<!-- DEV NOTES -->
+<div class="notes">
+  <h2>WHAT ELSE WOULD HELP A TEAM</h2>
+  <ul>
+    <li>
+      <strong>dustbound-codemap.md</strong> — line-number index of every major system in the HTML file
+      <br><span class="tag">renderer · collision · phase state machine · L1–L5 functions · audio · UI layers · NORAD globe</span>
+      <br>Lets any dev find a system in &lt;10 seconds without searching.
+    </li>
+    <li>
+      <strong>dustbound-todo.md</strong> — known issues, polish items, Episode 2 hooks
+      <br><span class="tag">current known: Gary bump mobile edge case · canvas sizing on first open · NORAD globe mobile touch vs click</span>
+      <br>Single truth for what needs doing vs what's done.
+    </li>
+    <li>
+      <strong>Sound design doc</strong> — every beep() call mapped to scene + intended feel; where recorded audio/music drops in later
+      <br><span class="tag">all audio is currently procedural beep() calls — no external assets needed to run</span>
+    </li>
+    <li>
+      <strong>Level design template</strong> — the conventions for adding a new level: phase names, collision setup, lighting config, complete screen HTML, jumpTo() hook
+      <br><span class="tag">needed for L6+ (Episode 2 — robot in orbit, satellite body, humanity rebuilding)</span>
+    </li>
+    <li>
+      <strong>Version control</strong> — currently one HTML file; a git repo lets multiple people branch without overwriting each other
+      <br><span class="tag">suggest: main branch = stable · dev branch = active · one branch per level in development</span>
+    </li>
+    <li>
+      <strong>Mobile test checklist</strong> — screen sizes to verify (375px iPhone SE · 390px iPhone 15 · 768px iPad · 412px Android)
+      <br><span class="tag">safe-area-inset-bottom critical for iOS · touch-action:none on canvas · PIX=4 retro scale</span>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>
